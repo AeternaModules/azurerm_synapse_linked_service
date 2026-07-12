@@ -1,3 +1,7 @@
+output "synapse_linked_services_id" {
+  description = "Map of id values across all synapse_linked_services, keyed the same as var.synapse_linked_services"
+  value       = { for k, v in azurerm_synapse_linked_service.synapse_linked_services : k => v.id }
+}
 output "synapse_linked_services_additional_properties" {
   description = "Map of additional_properties values across all synapse_linked_services, keyed the same as var.synapse_linked_services"
   value       = { for k, v in azurerm_synapse_linked_service.synapse_linked_services : k => v.additional_properties }
